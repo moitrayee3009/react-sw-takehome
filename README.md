@@ -1,27 +1,61 @@
-# React + TypeScript + Vite
+# QBank React Take-home Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The goal of this assignment is to give you an opportunity to show your proficiency in the following areas:
 
-Currently, two official plugins are available:
+- Basic CSS knowledge
+- Typescript
+- React built-in state management
+- Working with REST API's
+- Component composition
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Starting out
 
-## Expanding the ESLint configuration
+Start by forking the repository and cloning it onto your machine. Then:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Open the project directory
+- `npm install`
+- `npm run dev`
 
-- Configure the top-level `parserOptions` property like this:
+And off you go! (Assuming you have [NodeJS & NPM](https://nodejs.org/en) installed)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The features to build are the following:
+
+- Display a list of Star Wars characters using the [Star Wars Public API](https://swapi.dev/) through their `/people` endpoint
+- Results should be paginated
+- Each item in the results should be presented as a card that contain a random image from a service like [Picsum Photos](https://picsum.photos/), the name of the character, as well as some kind of color coding based on the character species
+- Display a loading indicator when data are being fetched
+
+### If you have the time
+
+Absolutely no need, but if you find that you have the time for it:
+
+- Implement a detail view modal which displays more details about a character. The modal can for example be opened by clicking one of the list items.
+- Explore the API to see if you can find more relevant information to show in the detail view.
+
+## Implementation
+
+In this one, we keep it simple! What we want you to use are:
+
+- Regular CSS or other Vite-supported CSS tools
+- Typescript. At least define types for component props.
+- React Context for storing and using fetched API data
+- React `useState` for storing component state
+- `fetch` for fetching API data
+
+## Focus-areas
+
+Keep the tooling simple. We want to see that you know the basics. We will assess the following:
+
+- Look and feel of the UI
+- Code structure, style, readability, performance and composition of components
+- Type safety
+
+## Submitting the code
+
+Simply reach out to your recruitment contact and provide a link to your forked code-base.
+
+## Questions?
+
+Don't hesitate to reach out to your recruitement contact if you have any questions. If anything is unclear, we want to know!
