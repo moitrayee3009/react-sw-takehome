@@ -7,6 +7,7 @@ export default interface Character {
   eye_color: string
   birth_year: string
   gender: string
-  films: { nodes: [] }
+  species: []
+  films: []
   imageId: number
 }
