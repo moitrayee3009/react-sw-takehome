@@ -1,26 +1,40 @@
-import qbankLogo from "./assets/qbank-logo.webp";
-import "./App.css";
+// import qbankLogo from "./assets/qbank-logo.webp";
+import React, { Fragment, Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Footer from './components/Footer/Footer'
+import Spinner from './components/Spinner/Spinner'
+
+const CharacterList = React.lazy(
+  () => import('./components/CharacterList/CharacterList')
+)
+const CharacterDetails = React.lazy(
+  () => import('./components/CharacterDetails/CharacterDetails')
+)
 
 function App() {
   return (
-    <>
-      <div>
-        <a href="https://qbankdam.com" target="_blank">
-          <img src={qbankLogo} className="logo" alt="QBank logo" />
-        </a>
-      </div>
-      <h1>
-        React Starwars <span className="text-primary">Take-home</span>{" "}
-        Assignment
-      </h1>
-      <div className="card">
-        <p>
-          You can find the assignment instructions in <code>README.md</code>.
-        </p>
-        <h2>Good luck!</h2>
-      </div>
-    </>
-  );
+    <Fragment>
+      <Suspense
+        fallback={
+          <div className='position'>
+            <Spinner />
+          </div>
+        }
+      >
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path='/https://swapi.dev/api/people/:id'
+              element={<CharacterDetails />}
+            />
+            <Route path='/' element={<CharacterList />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
+      <Footer />
+    </Fragment>
+  )
 }
 
-export default App;
+export default App

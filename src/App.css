@@ -9,13 +9,54 @@
 body {
   color: var(--text-color);
   background-color: var(--secondary-color);
+  margin: 0;
+  :root {
+    --primary-color: #1dabe2;
+    --secondary-color: #023e58;
+    --text-color: #fff;
+    --call-to-action-color: #737fec;
+    --success-color: #299778;
+  }
+
+  body {
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    min-height: 100vh;
+  }
+
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .logo {
+    height: 4em;
+    padding: 1.5em;
+  }
+
+  .card {
+    padding: 2em;
+  }
+
+  .text-success {
+    color: var(--success-color);
+  }
+
+  .text-primary {
+    color: var(--primary-color);
+  }
 }
 
 #root {
   max-width: 1280px;
+  min-width: 90vw;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .logo {

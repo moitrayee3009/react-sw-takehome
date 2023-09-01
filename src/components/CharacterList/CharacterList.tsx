@@ -1,0 +1,41 @@
+// import { useState } from 'react'
+import { useCharacterContext } from '../../Context/CharacterContext'
+import Spinner from '../Spinner/Spinner'
+import IndividCharacterCard from '../IndividCharacterCard/IndividCharacterCard'
+import Character from '../../Type/type'
+import './CharacterListStyle.css'
+import Pagination from '../Pagination/Pagination'
+import HeadingText from '../HeadingText/HeadingText'
+
+const CharacterList = () => {
+  const { data, isLoading } = useCharacterContext()
+  // const [currentPageNumber, setCurrentPageNumber] = useState<number>(1)
+  // const [pageList, setPageList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+  // console.log('data', data)
+
+  if (isLoading) {
+    return (
+      <div className='position'>
+        <Spinner />
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <div className='container'>
+        <HeadingText text='Star Wars popular movie characters' />
+        <ul className='movie-list-container'>
+          {data.map((item: Character, i: number) => {
+            return <IndividCharacterCard key={i} actor={item} />
+          })}
+        </ul>
+
+        <Pagination />
+      </div>
+    </>
+  )
+}
+
+export default CharacterList

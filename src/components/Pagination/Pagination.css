@@ -1,0 +1,54 @@
+.paging {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin: 3rem 0 5rem 0;
+}
+
+.spacing {
+  padding: 0 0.8rem;
+}
+
+.paging .active {
+  color: #f96e85;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .paging {
+    padding: 0 3rem;
+  }
+}
+
+.previous {
+  margin-right: 20px;
+}
+.previous svg {
+  padding-left: 10px;
+}
+
+.previous svg :hover {
+  fill: #f96e85;
+}
+
+.next {
+  margin-left: 5px;
+}
+.next svg {
+  padding-right: 10px;
+}
+.next svg :hover {
+  fill: #f96e85;
+}
+
+.page-number {
+  margin-right: 15px;
+}
+
+.page-number:hover {
+  color: #f96e85;
+}
