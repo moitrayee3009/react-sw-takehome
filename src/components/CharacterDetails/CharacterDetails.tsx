@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+
 import './CharacterDetailsStyle.css'
 import Spinner from '../Spinner/Spinner'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+
 import Character from '../../Type/type'
 import HeadingText from '../HeadingText/HeadingText'
 import { getId } from '../../common'
@@ -10,6 +12,7 @@ const CharacterDetails = () => {
   const [details, setDetails] = useState<Character | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const params = useParams<{ id: string }>()
+  const navigate = useNavigate()
 
   const getCharacterDetail = () => {
     setIsLoading(true)
@@ -40,7 +43,13 @@ const CharacterDetails = () => {
   if (!details) return null
 
   return (
-    <>
+    <div className='container'>
+      <div className='btn-back'>
+        <button className='btn' onClick={() => navigate(-1)}>
+          Go Back
+        </button>
+      </div>
+
       <HeadingText text={`Details about ${details?.name} `} />
       <div className='details-container'>
         <div className='poster-container'>
@@ -78,7 +87,7 @@ const CharacterDetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

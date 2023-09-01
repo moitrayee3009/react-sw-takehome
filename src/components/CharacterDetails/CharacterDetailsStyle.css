@@ -1,9 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.btn-back {
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.2em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
 .details-container {
   display: flex;
+  justify-content: space-around;
   width: 100%;
   height: 63vh;
-  padding: 0 10rem;
+  padding: 1rem 10rem 0 10rem;
   box-sizing: border-box;
+}
+
+.poster-container {
+  display: flex;
+  width: 200px;
+  min-width: 25%;
+  height: 300px;
+  padding: 0 2rem 3rem 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.poster-container img {
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease 0s;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: rgb(0 0 0 / 27%) 10px 10px 33px -4px;
+}
+
+.text-container {
+  width: 65%;
+  padding: 0 2rem;
+}
+
+.text-container div {
+  padding: 1rem;
+}
+
+.character-details {
+  padding: 0 1rem !important;
+  font-weight: 500;
+}
+.character-details p {
+  display: flex;
+  margin-top: 0;
+}
+.character-details-span-left {
+  text-align: left;
+  padding-right: 2rem;
+  width: 100px;
 }
 
 @media screen and (max-width: 768px) {
@@ -51,45 +118,4 @@
   .poster-container {
     width: 80%;
   }
-}
-
-.poster-container {
-  display: flex;
-  width: 50%;
-  min-width: 25%;
-  padding: 0 2rem 3rem 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.poster-container img {
-  width: 100%;
-  height: auto;
-  transition: all 0.3s ease 0s;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: rgb(0 0 0 / 27%) 10px 10px 33px -4px;
-}
-
-.text-container {
-  width: 65%;
-  padding: 0 2rem;
-}
-
-.text-container div {
-  padding: 1rem;
-}
-
-.character-details {
-  padding: 0 1rem !important;
-  font-weight: 500;
-}
-.character-details p {
-  display: flex;
-  margin-top: 0;
-}
-.character-details-span-left {
-  text-align: left;
-  padding-right: 2rem;
-  width: 100px;
 }
