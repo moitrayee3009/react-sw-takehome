@@ -1,5 +1,4 @@
 export default interface Character {
-  id: number
   url: string
   name: string
   height: string

@@ -1,4 +1,3 @@
-// import qbankLogo from "./assets/qbank-logo.webp";
 import React, { Fragment, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
@@ -24,10 +23,7 @@ function App() {
       >
         <BrowserRouter>
           <Routes>
-            <Route
-              path='/https://swapi.dev/api/people/:id'
-              element={<CharacterDetails />}
-            />
+            <Route path='/api/people/:id' element={<CharacterDetails />} />
             <Route path='/' element={<CharacterList />} />
           </Routes>
         </BrowserRouter>

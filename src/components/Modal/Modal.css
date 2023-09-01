@@ -160,5 +160,7 @@ body.active-modal {
 .modal-character-details-span-right {
   min-width: fit-content;
   width: 100px;
+  display: flex;
+  justify-content: flex-start;
   text-align: left;
 }

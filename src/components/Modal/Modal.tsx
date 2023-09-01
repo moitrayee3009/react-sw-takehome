@@ -2,7 +2,6 @@ import Character from '../../Type/type'
 import HeadingText from '../HeadingText/HeadingText'
 import './Modal.css'
 import { getId } from '../../common'
-// import '../CharacterDetails/CharacterDetailsStyle.css'
 
 export default function Modal({
   actor,
