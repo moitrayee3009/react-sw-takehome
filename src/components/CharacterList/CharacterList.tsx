@@ -21,7 +21,7 @@ const CharacterList = () => {
     <>
       <div className='container'>
         <HeadingText text='Star Wars popular movie characters' />
-        <ul className='movie-list-container'>
+        <ul className='character-list-container'>
           {data.map((item: Character, i: number) => {
             return <IndividCharacterCard key={i} actor={item} />
           })}
