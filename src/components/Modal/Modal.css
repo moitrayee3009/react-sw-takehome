@@ -101,6 +101,13 @@ body.active-modal {
   font-size: 14px !important;
   font-weight: 500;
 }
+.modal-character-details div {
+  display: flex;
+  margin-top: 0;
+  padding: 0;
+  font-size: 14px !important;
+  font-weight: 500;
+}
 
 .modal-character-details-span-left {
   text-align: left;

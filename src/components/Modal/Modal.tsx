@@ -87,20 +87,22 @@ export default function Modal({
                         {actor?.gender}
                       </span>
                     </p>
-                    <p>
-                      <span className='modal-character-details-span-left'>
-                        Films:{' '}
-                      </span>
-                      <ul className='film-name'>
-                        {filmNames.map((film: string, i: number) => {
-                          return (
-                            <li key={i}>
-                              <span className='modal-film-name'>{film}</span>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </p>
+                    {filmNames.length !== 0 && (
+                      <div>
+                        <span className='modal-character-details-span-left'>
+                          Films:{' '}
+                        </span>
+                        <ul className='film-name'>
+                          {filmNames.map((film: string, i: number) => {
+                            return (
+                              <li key={i}>
+                                <span className='modal-film-name'>{film}</span>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
