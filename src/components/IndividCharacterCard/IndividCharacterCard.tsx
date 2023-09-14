@@ -7,7 +7,7 @@ import { getId } from '../../common'
 
 const IndividCharacterCard = ({ actor }: { actor: Character }) => {
   const [modal, setModal] = useState(false)
-  const [eyeColor, setEyeColor] = useState<string[]>([])
+  const [filmNames, setFilmNames] = useState<string[]>([])
 
   const toggleModal = () => {
     setModal(!modal)
@@ -26,37 +26,38 @@ const IndividCharacterCard = ({ actor }: { actor: Character }) => {
     setModal(true)
   }
 
-  const imageId = getId(actor.url)
+  const filmUrls = actor.films
 
-  const getSpeciesColor = () => {
-    const [specisUrl] = actor.species.length !== 0 ? actor.species : ''
-    if (!specisUrl) {
-      return false
-    }
-
-    fetch(specisUrl)
-      .then((response) => response.json())
-      .then((res) => {
-        const spsEyecolors: string = res.eye_colors
-
-        if (spsEyecolors && spsEyecolors !== 'n/a') {
-          if (spsEyecolors.indexOf(',') > -1) {
-            setEyeColor(spsEyecolors.split(','))
-          } else {
-            setEyeColor([spsEyecolors])
-          }
-        }
+  const getFilmNames = () => {
+    Promise.all(
+      filmUrls.map((filmUrl) => {
+        return fetch(filmUrl)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Network response was not ok: ${response.status}`)
+            }
+            return response.json()
+          })
+          .then((data) => data.title)
+          .catch((error) => {
+            console.error('Error fetching film data:', error)
+            return null // Return a placeholder or handle the error as needed
+          })
+      })
+    )
+      .then((names) => {
+        setFilmNames(names.filter((name) => name !== null))
       })
       .catch((error) => {
-        console.error('Error fetching  data:', error)
+        console.error('Error fetching film data:', error)
       })
-
-    console.log(eyeColor)
   }
 
   useEffect(() => {
-    getSpeciesColor()
-  }, [])
+    getFilmNames() // Call getFilmNames inside the useEffect
+  }, [actor])
+
+  const imageId = getId(actor.url)
 
   return (
     <>
@@ -73,21 +74,25 @@ const IndividCharacterCard = ({ actor }: { actor: Character }) => {
           Open in new window
         </div>
         <div className='eye-color'>
-          {eyeColor.map((color: string, i: number) => {
-            return (
-              <div
-                key={i}
-                className='color'
-                style={{
-                  backgroundColor: `${color}`
-                }}
-              ></div>
-            )
-          })}
+          {actor.speciesColor?.map((color: string, i: number) => (
+            <div
+              key={i}
+              className='color'
+              title={`${color}`}
+              style={{
+                backgroundColor: `${color}`
+              }}
+            ></div>
+          ))}
         </div>
       </li>
 
-      <Modal actor={actor} modal={modal} toggleModal={toggleModal} />
+      <Modal
+        actor={actor}
+        modal={modal}
+        toggleModal={toggleModal}
+        filmNames={filmNames}
+      />
     </>
   )
 }

@@ -6,10 +6,12 @@ import { getId } from '../../common'
 export default function Modal({
   actor,
   modal,
+  filmNames,
   toggleModal
 }: {
   actor: Character
   modal: boolean
+  filmNames: string[]
   toggleModal: () => void
 }) {
   const imageId = getId(actor.url)
@@ -84,6 +86,20 @@ export default function Modal({
                       <span className='modal-character-details-span-right'>
                         {actor?.gender}
                       </span>
+                    </p>
+                    <p>
+                      <span className='modal-character-details-span-left'>
+                        Films:{' '}
+                      </span>
+                      <ul className='film-name'>
+                        {filmNames.map((film: string, i: number) => {
+                          return (
+                            <li key={i}>
+                              <span className='modal-film-name'>{film}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
                     </p>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 export default interface Character {
+  speciesColor: string[]
   url: string
   name: string
   height: string
@@ -7,7 +8,8 @@ export default interface Character {
   eye_color: string
   birth_year: string
   gender: string
-  species: []
+  species: string[]
   films: []
+  filmNames: string[]
   imageId: number
 }

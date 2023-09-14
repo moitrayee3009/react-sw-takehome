@@ -46,7 +46,7 @@ const CharacterDetails = () => {
     <div className='container'>
       <div className='btn-back'>
         <button className='btn' onClick={() => navigate(-1)}>
-          Go Back
+          Home
         </button>
       </div>
 

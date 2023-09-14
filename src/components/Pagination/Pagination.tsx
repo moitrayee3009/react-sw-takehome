@@ -1,4 +1,6 @@
 import { useCharacterContext } from '../../Context/CharacterContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import './Pagination.css'
 
 const Pagination = () => {
@@ -25,6 +27,7 @@ const Pagination = () => {
     <div className='paging'>
       <div className='previous' onClick={() => movePageLeftRight('prev')}>
         Previous
+        <FontAwesomeIcon icon={faArrowLeft} />
       </div>
       {pageList.map((pageNum) => {
         return (
@@ -41,6 +44,7 @@ const Pagination = () => {
       })}
 
       <div className='next' onClick={() => movePageLeftRight('next')}>
+        <FontAwesomeIcon icon={faArrowRight} />
         Next
       </div>
     </div>
